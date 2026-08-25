@@ -1,70 +1,57 @@
-# Derek's Roofing — Static HTML Version (Netlify / Vercel)
+# Derek's Roofing — Netlify static site
 
-This is a fully static copy of the site — no PHP, no server needed. Drag-and-drop deploy to Netlify or Vercel.
+This is a static HTML site that is designed to deploy on Netlify. Netlify Forms receives quote requests, and a Netlify submission event function appends each submission to Google Sheets.
 
-## What's different from the cPanel/PHP version
+## Deploy to Netlify
 
-| | PHP version (`/php-cpanel`) | Static version (`/static-html`, this folder) |
-|---|---|---|
-| Pages | `.php` | `.html` |
-| Contact form | Sends email via PHP `mail()` | Submits via **Formspree** (or Netlify Forms) |
-| Gallery | Auto-scans `/images` folder on the server | Fixed list of images baked into `gallery.html` |
-| Admin photo upload | `login.php` / `admin.php` let you upload via browser | **Not available** — static hosts can't run server code. To add/remove photos, edit the image files in `/images` and redeploy (see below) |
+1. In Netlify, select **Add new site** and either connect this repository or choose **Deploy manually**.
+2. Deploy the repository root. No build command is required.
+3. After deployment, submit a test quote request. It should appear under **Forms** in the Netlify dashboard as the `contact` form.
 
-## 1. Deploy to Netlify
+The form in `index.html` is already configured with Netlify's required `name`, `data-netlify`, and hidden `form-name` fields. It redirects successful submissions to `thankyou.html`.
 
-**Option A — drag and drop:**
-1. Go to [app.netlify.com](https://app.netlify.com) → "Add new site" → "Deploy manually"
-2. Drag this entire folder in. Done — you'll get a live URL immediately.
+## Save submissions to Google Sheets
 
-**Option B — Netlify Forms (recommended, no sign-up to Formspree needed):**
-1. Open `index.html`, find the `<form class="contact-form" ...>` tag.
-2. Add `data-netlify="true"` to it and remove the `action="https://formspree.io/..."` attribute.
-3. Add a hidden field Netlify needs: `<input type="hidden" name="form-name" value="contact">` inside the form.
-4. Redeploy. Submissions will appear under your Netlify site → **Forms**.
+The `netlify/functions/submission-created.js` event function runs whenever Netlify receives a form submission. It adds the submission date, name, phone, email, service, and message to columns A–F of the `Sheet1` worksheet.
 
-## 2. Deploy to Vercel
+Before deploying, create a Google Cloud service account with the Google Sheets API enabled, share the target spreadsheet with that service account's email address, and add these environment variables in **Netlify → Site configuration → Environment variables**:
 
-1. Go to [vercel.com/new](https://vercel.com/new) → import this folder (or push it to a GitHub repo and import that repo).
-2. No build settings are needed — it's plain HTML/CSS/JS, so leave the framework preset as "Other".
-3. Deploy. Vercel doesn't have built-in form handling, so keep the Formspree option below for the contact form.
+| Variable | Value |
+|---|---|
+| `GOOGLE_SERVICE_ACCOUNT_EMAIL` | The service account email address. |
+| `GOOGLE_PRIVATE_KEY` | The service account private key. Keep escaped newlines (`\\n`) if pasting it as one line. |
+| `GOOGLE_SHEET_ID` | The spreadsheet ID from the Google Sheets URL. |
 
-## 3. Set up the contact form (Formspree — works on both Netlify & Vercel)
+Do not commit service-account credentials to this repository. After setting the variables, trigger a new deploy and submit a test form. Confirm both the Netlify Forms dashboard and the spreadsheet receive the submission.
 
-1. Go to [formspree.io](https://formspree.io), sign up free, create a new form, and copy your **Form ID**.
-2. In `index.html`, find:
-   ```html
-   <form class="contact-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
-   ```
-3. Replace `YOUR_FORM_ID` with your real ID.
-4. Submissions will land in your Formspree inbox and forward to your email. The form already redirects to `thankyou.html` after a successful send.
+## Updating business details
 
-## 4. Updating business details (phone, email, WhatsApp, address)
+Unlike the PHP version, business details are written directly into the HTML files. Use your editor's find-and-replace across files to update:
 
-Unlike the PHP version, there's no single `config.php` — these details are written directly into each HTML file's footer and floating buttons. To change them, use your editor's "Find & Replace across files" feature on:
 - Phone number: `071 250 0125`
 - Phone link: `+27712500125`
 - WhatsApp link: `27712500125`
 - Email: `Djlou57@gmail.com`
 - Address: `Patrys St, Welgemoed, Cape Town, 7530`
 
-## 5. Updating gallery photos
+## Updating gallery photos
 
-1. Add your new image file into `/images`.
-2. Open `gallery.html`, find the `<div class="gallery-grid">` block, and copy/paste a `<figure>` line, pointing it at your new filename.
-3. (Optional) Do the same in the "Recent work" section of `index.html` if you want it featured on the homepage.
-4. Redeploy (drag the folder again on Netlify, or `git push` if connected to a repo).
+1. Add the image file to `/images`.
+2. In `gallery.html`, copy a `<figure>` in the `<div class="gallery-grid">` block and update it to use the new filename.
+3. Optionally add it to the "Recent work" section of `index.html`.
+4. Redeploy the site.
 
 ## Folder contents
 
 ```
-index.html       Homepage
-gallery.html      Photo gallery
-faq.html          FAQs
-privacy.html      Privacy Policy
-terms.html        Terms & Conditions
-thankyou.html     Shown after contact form submission
-style.css         Styling
-script.js         Nav, lightbox, FAQ accordion behaviour
-images/           Logo, header background, and gallery photos
+index.html       Homepage and Netlify contact form
+gallery.html     Photo gallery
+faq.html         Frequently asked questions
+privacy.html     Privacy policy
+terms.html       Terms and conditions
+thankyou.html    Form submission confirmation page
+netlify/         Google Sheets submission event function
+style.css        Site styling
+script.js        Navigation, lightbox, and FAQ behaviour
+images/          Logo, header background, and gallery photos
 ```
