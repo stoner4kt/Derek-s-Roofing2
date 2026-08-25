@@ -104,8 +104,24 @@ section{padding:88px 0;}
 /* ---------------- Hero ---------------- */
 .hero{
   position:relative;min-height:100vh;display:flex;align-items:center;
-  background:linear-gradient(180deg, rgba(15,37,64,.78), rgba(15,37,64,.55) 45%, rgba(15,37,64,.85)), url('images/header-background.jpg') center/cover no-repeat;
+  background-color:var(--navy-deep);
+  background-image:linear-gradient(180deg, rgba(15,37,64,.78), rgba(15,37,64,.55) 45%, rgba(15,37,64,.85)), url('images/header-background.jpg');
+  background-position:center center;
+  background-size:cover;
+  background-repeat:no-repeat;
   color:var(--white);
+}
+/* On mobile: show the entire header-background image (square asset) without cropping */
+@media (max-width:880px){
+  .hero{
+    min-height:auto;
+    padding:120px 0 80px;
+    background-size:contain;
+    background-position:center top;
+    background-color:var(--navy-deep);
+  }
+  .hero-content{padding-top:20px;}
+  .hero-stats{margin-top:36px;gap:24px;}
 }
 .hero-content{max-width:680px;padding-top:90px;}
 .hero .eyebrow{color:var(--timber-light);}
