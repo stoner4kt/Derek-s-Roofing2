@@ -212,14 +212,14 @@
       <div class="item"><div class="icon">&#9993;&#65039;</div><div><h4>Email</h4><p><a href="mailto:Djlou57@gmail.com">Djlou57@gmail.com</a></p></div></div>
       <div class="item"><div class="icon">&#128337;</div><div><h4>Hours</h4><p>Mon &ndash; Fri: 8:00 &ndash; 17:00 | Sat: 8:00 &ndash; 13:00</p></div></div>
     </div>
-    <form class="contact-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
-      <input type="hidden" name="_subject" value="New quote request &mdash; Derek's Roofing">
-      <input type="hidden" name="_redirect" value="thankyou.html">
+    <form name="contact" class="contact-form" method="POST" action="/thankyou.html" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p hidden><label>Do not fill this out if you are human: <input name="bot-field"></label></p>
       <div class="form-row">
         <div><label for="name">Full name</label><input id="name" name="name" type="text" required></div>
         <div><label for="phone">Phone number</label><input id="phone" name="phone" type="tel"></div>
       </div>
-      <div><label for="email">Email address</label><input id="email" name="_replyto" type="email" required></div>
+      <div><label for="email">Email address</label><input id="email" name="email" type="email" required></div>
       <div><label for="service">Service needed</label>
         <select id="service" name="service">
           <option value="">Select a service</option>
