@@ -39,50 +39,84 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "RoofingContractor",
-  "name": "Derek's Roofing",
-  "image": "https://dereksroofing.co.za/images/logo.jpg",
-  "url": "https://dereksroofing.co.za/",
-  "telephone": "+27712500125",
-  "email": "Djlou57@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Patrys St, Welgemoed",
-    "addressLocality": "Cape Town",
-    "addressRegion": "Western Cape",
-    "postalCode": "7530",
-    "addressCountry": "ZA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": -33.8793071,
-    "longitude": 18.6180091
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      "opens": "08:00",
-      "closes": "17:00"
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "RoofingContractor",
+    "name": "Derek's Roofing",
+    "image": "https://dereksroofing.co.za/images/logo.jpg",
+    "url": "https://dereksroofing.co.za/",
+    "telephone": "+27712500125",
+    "email": "Djlou57@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Patrys St, Welgemoed",
+      "addressLocality": "Cape Town",
+      "addressRegion": "Western Cape",
+      "postalCode": "7530",
+      "addressCountry": "ZA"
     },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "08:00",
-      "closes": "13:00"
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -33.8793071,
+      "longitude": 18.6180091
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Cape Town"},
+      {"@type": "AdministrativeArea", "name": "Northern Suburbs, Cape Town"},
+      {"@type": "AdministrativeArea", "name": "Southern Suburbs, Cape Town"},
+      {"@type": "AdministrativeArea", "name": "Western Cape"}
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "14",
+      "bestRating": "5"
+    },
+    "priceRange": "$",
+    "description": "Cape Town roofing contractor offering re-roofing, repairs, flat roof leak repairs, fascias, gutter cleaning, waterproofing and timber decking. Owner on site, 4.8★ Google rating.",
+    "sameAs": [
+      "https://www.google.com/maps/place/Derek%E2%80%99s+Roofing,+Patrys+St,+Welgemoed,+Cape+Town,+7530/@-33.8793071,18.6180091,16z"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Roofing Services Cape Town",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Roof Repairs Cape Town"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Re-roofing Cape Town"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Flat Roof Leak Repairs"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gutter Cleaning and Installation"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Roof Waterproofing Cape Town"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Timber Decking and Pergolas"}}
+      ]
     }
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "14",
-    "bestRating": "5"
   },
-  "priceRange": "$$",
-  "description": "Cape Town roofing contractor offering re-roofing, repairs, fascias, gutters, waterproofing and timber decking. Owner on site, 4.8★ Google rating."
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://dereksroofing.co.za/",
+    "name": "Derek's Roofing",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://dereksroofing.co.za/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+]
 </script>
 </head>
 <body>
@@ -113,8 +147,8 @@
 <section class="hero">
   <div class="container hero-content">
     <span class="eyebrow">Cape Town &middot; 4.8&#9733; Rated Roofing Contractor</span>
-    <h1>Roofing done right, the first time.</h1>
-    <p class="lead">From full re-roofing to fascias, gutters, waterproofing and timber decking &mdash; Derek's Roofing has been serving Cape Town homes with honest, reliable workmanship.</p>
+    <h1>Cape Town Roofing — Done Right, the First Time.</h1>
+    <p class="lead">From <a href="services/flat-roof-repairs.html" style="color:inherit;text-decoration:underline;">flat roof repairs</a> to full re-roofing, fascias, <a href="services/gutter-cleaning.html" style="color:inherit;text-decoration:underline;">gutter cleaning</a>, <a href="services/roof-waterproofing.html" style="color:inherit;text-decoration:underline;">waterproofing</a> and timber decking &mdash; Derek's Roofing has been serving Cape Town homes with honest, reliable workmanship.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn btn-primary">Get a Quote</a>
       <a href="gallery.html" class="btn btn-secondary">View Our Work</a>
@@ -136,14 +170,14 @@
     <span class="eyebrow">What we do</span>
     <h2>Roofing services built on craftsmanship</h2>
     <div class="services-grid">
-      <div class="service-card"><span class="num">01</span><h3>Roof Inspection, Repairs & Replace</h3><p>Full roof inspections, targeted repairs and complete roof replacements — done right the first time.</p></div>
-      <div class="service-card"><span class="num">02</span><h3>Gutters</h3><p>Install, repair or replace gutters and downpipes so water is directed cleanly away from your home.</p></div>
-      <div class="service-card"><span class="num">03</span><h3>Fascias</h3><p>Refurbish or replace fascias to restore the clean edge and weather protection of your roof line.</p></div>
-      <div class="service-card"><span class="num">04</span><h3>New Structures — Steel or Timber</h3><p>New steel or timber structures built to last, from frames to finished roofs.</p></div>
-      <div class="service-card"><span class="num">05</span><h3>Decking</h3><p>New decking, replacements and repairs — outdoor living spaces built with the same attention to detail as our roofing work.</p></div>
-      <div class="service-card"><span class="num">06</span><h3>Maintenance, Alterations & Insurance</h3><p>Ongoing maintenance, alterations and improvements to all of the above, plus insurance assessments when you need them.</p></div>
+      <div class="service-card"><span class="num">01</span><h3>Roof Repairs, Inspections &amp; Re-roofing Cape Town</h3><p>Full roof inspections, targeted leak repairs, and complete roof replacements — flat roof, IBR sheeting and tile, all done right the first time.</p></div>
+      <div class="service-card"><span class="num">02</span><h3>Gutter Installation, Repair &amp; Cleaning</h3><p>Install, repair or replace gutters and downpipes so rainwater is directed cleanly away from your home — preventing damp and structural damage.</p></div>
+      <div class="service-card"><span class="num">03</span><h3>Fascia Board Replacement Cape Town</h3><p>Refurbish or replace rotting fascia boards to restore the clean edge and weather protection of your roof line.</p></div>
+      <div class="service-card"><span class="num">04</span><h3>New Roof Structures — Steel or Timber Frames</h3><p>New steel or timber roof structures built to last, from frames to finished roofs — garages, extensions, carports and more.</p></div>
+      <div class="service-card"><span class="num">05</span><h3>Timber Decking &amp; Pergola Construction</h3><p>New decking, replacements and pergola repairs — outdoor living spaces built with the same care as our roofing work.</p></div>
+      <div class="service-card"><span class="num">06</span><h3>Roof Waterproofing &amp; Maintenance Cape Town</h3><p>Ongoing roof waterproofing, painting and maintenance — plus insurance assessments when you need them.</p></div>
     </div>
-    <p class="service-note" style="margin-top:2rem;text-align:center;color:var(--slate);max-width:720px;margin-left:auto;margin-right:auto;">
+    <p class="service-note style="margin-top:2rem;text-align:center;color:var(--slate);max-width:720px;margin-left:auto;margin-right:auto;">
       <strong>Call-out fee:</strong> A call-out fee applies for areas outside the Northern suburbs of Cape Town. The fee depends on the area — contact us for a quote for your location.
     </p>
   </div>
@@ -172,9 +206,9 @@
     <span class="eyebrow">Recent work</span>
     <h2>A few projects we're proud of</h2>
     <div class="gallery-grid">
-      <figure><img src="images/0dc2f071-1d25-4a3a-adcf-30185e6e01dc.jpeg" data-full="images/0dc2f071-1d25-4a3a-adcf-30185e6e01dc.jpeg" alt="Derek's Roofing project" loading="lazy"></figure>
-      <figure><img src="images/8002a60d-555a-4e1f-a67e-91538e2eb175.jpeg" data-full="images/8002a60d-555a-4e1f-a67e-91538e2eb175.jpeg" alt="Derek's Roofing project" loading="lazy"></figure>
-      <figure><img src="images/gallery-6.jpg" data-full="images/gallery-6.jpg" alt="Roof truss frame mid-construction" loading="lazy"></figure>
+      <figure><img src="images/0dc2f071-1d25-4a3a-adcf-30185e6e01dc.jpeg" data-full="images/0dc2f071-1d25-4a3a-adcf-30185e6e01dc.jpeg" alt="Completed roof repair project by Derek's Roofing, Cape Town Northern Suburbs" loading="lazy"></figure>
+      <figure><img src="images/8002a60d-555a-4e1f-a67e-91538e2eb175.jpeg" data-full="images/8002a60d-555a-4e1f-a67e-91538e2eb175.jpeg" alt="Re-roofing and gutter installation by Derek's Roofing, Cape Town" loading="lazy"></figure>
+      <figure><img src="images/gallery-6.jpg" data-full="images/gallery-6.jpg" alt="New timber roof truss frame mid-construction — Derek's Roofing Cape Town" loading="lazy"></figure>
     </div>
     <div style="text-align:center;margin-top:40px;"><a href="gallery.html" class="btn btn-outline-navy">See the Full Gallery</a></div>
   </div>
@@ -190,6 +224,17 @@
       <div class="testimonial"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Look no further than this company for experienced and high-quality workmanship. I am a very, very happy client and will definitely use them again in the future. Once again, thank you so much for our beautiful braai room!"</p><div class="who">&mdash; Werner Kohne</div></div>
       <div class="testimonial"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Exceptional workmanship and extremely reliable in getting work done with no comebacks. Very impressed with both our afdak and roof sealing."</p><div class="who">&mdash; Deidre Prout</div></div>
     </div>
+  </div>
+</section>
+
+<section class="section-white" style="padding:3rem 0;">
+  <div class="container" style="text-align:center;">
+    <span class="eyebrow">Service Area</span>
+    <h2 style="margin-bottom:1rem;">Serving Cape Town &amp; Surrounds</h2>
+    <p style="max-width:680px;margin:0 auto 1.5rem;color:var(--slate);">
+      Derek's Roofing works across the Western Cape, with a primary focus on Cape Town's Northern and Southern Suburbs. We regularly complete projects in Bellville, Durbanville, Tyger Valley, Welgemoed, Blouberg, Table View, Constantia, Claremont, Kenilworth and Brackenfell.
+    </p>
+    <p style="font-size:0.9rem;color:var(--slate);">A call-out fee applies for areas outside the Northern Suburbs — <a href="#contact">contact us</a> for a quote for your location.</p>
   </div>
 </section>
 
@@ -251,7 +296,9 @@
       <div>
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="index.html#services">Services</a></li>
+          <li><a href="services/flat-roof-repairs.html">Flat Roof Repairs</a></li>
+          <li><a href="services/gutter-cleaning.html">Gutter Cleaning</a></li>
+          <li><a href="services/roof-waterproofing.html">Roof Waterproofing</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="faq.html">FAQs</a></li>
           <li><a href="index.html#contact">Get a Quote</a></li>

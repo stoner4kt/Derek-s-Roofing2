@@ -3,6 +3,7 @@
 
 User-agent: *
 Allow: /
+Disallow: /thankyou.html
 
 # Explicitly welcome major search engines and AI crawlers
 User-agent: Googlebot
